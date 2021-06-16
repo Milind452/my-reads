@@ -1,52 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import * as BooksAPI from "./BooksAPI";
 import Bookshelf from "./Bookshelf";
 
 class ListBooks extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentlyReading: [],
-            wantToRead: [],
-            read: [],
-        };
-        this.getBooks = this.getBooks.bind(this);
-        this.moveBook = this.moveBook.bind(this);
-    }
-
-    getBooks() {
-        BooksAPI.getAll().then((books) => {
-            let currentlyReading = [];
-            let wantToRead = [];
-            let read = [];
-            for (let key in books) {
-                const book = books[key];
-                if (book.shelf === "currentlyReading") {
-                    currentlyReading.push(book);
-                } else if (book.shelf === "wantToRead") {
-                    wantToRead.push(book);
-                } else {
-                    read.push(book);
-                }
-            }
-            this.setState(() => ({
-                currentlyReading: currentlyReading,
-                wantToRead: wantToRead,
-                read: read,
-            }));
-        });
-    }
-
-    moveBook(value, book) {
-        if (value !== "move" && value !== "none" && value !== book.shelf) {
-            BooksAPI.update(book, value).then(this.getBooks);
-        }
-    }
-
     componentDidMount() {
-        this.getBooks();
+        this.props.getBooks();
     }
+
     render() {
         return (
             <div className="list-books">
@@ -55,19 +15,19 @@ class ListBooks extends React.Component {
                 </header>
                 <div className="main-content">
                     <Bookshelf
-                        books={this.state.currentlyReading}
+                        books={this.props.shelves.currentlyReading}
                         title={"Currently Reading"}
-                        moveBook={this.moveBook}
+                        moveBook={this.props.moveBook}
                     />
                     <Bookshelf
-                        books={this.state.wantToRead}
+                        books={this.props.shelves.wantToRead}
                         title={"Want to Read"}
-                        moveBook={this.moveBook}
+                        moveBook={this.props.moveBook}
                     />
                     <Bookshelf
-                        books={this.state.read}
+                        books={this.props.shelves.read}
                         title={"Read"}
-                        moveBook={this.moveBook}
+                        moveBook={this.props.moveBook}
                     />
                 </div>
                 <div className="open-search">
