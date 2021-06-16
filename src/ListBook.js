@@ -11,8 +11,11 @@ class ListBooks extends React.Component {
             wantToRead: [],
             read: [],
         };
+        this.getBooks = this.getBooks.bind(this);
+        this.moveBook = this.moveBook.bind(this);
     }
-    componentDidMount() {
+
+    getBooks() {
         BooksAPI.getAll().then((books) => {
             let currentlyReading = [];
             let wantToRead = [];
@@ -34,6 +37,16 @@ class ListBooks extends React.Component {
             }));
         });
     }
+
+    moveBook(value, book) {
+        if (value !== "move" && value !== "none" && value !== book.shelf) {
+            BooksAPI.update(book, value).then(this.getBooks);
+        }
+    }
+
+    componentDidMount() {
+        this.getBooks();
+    }
     render() {
         return (
             <div className="list-books">
@@ -44,12 +57,18 @@ class ListBooks extends React.Component {
                     <Bookshelf
                         books={this.state.currentlyReading}
                         title={"Currently Reading"}
+                        moveBook={this.moveBook}
                     />
                     <Bookshelf
                         books={this.state.wantToRead}
                         title={"Want to Read"}
+                        moveBook={this.moveBook}
                     />
-                    <Bookshelf books={this.state.read} title={"Read"} />
+                    <Bookshelf
+                        books={this.state.read}
+                        title={"Read"}
+                        moveBook={this.moveBook}
+                    />
                 </div>
                 <div className="open-search">
                     <Link to="/search" className="btn">

@@ -5,7 +5,7 @@ const Bookshelf = (props) => {
             <div className="bookshelf-books">
                 <ol className="books-grid">
                     {props.books.map((book) => {
-                        console.log(book);
+                        // console.log(book);
                         return (
                             <li key={book.id}>
                                 <div className="book">
@@ -19,7 +19,14 @@ const Bookshelf = (props) => {
                                             }}
                                         ></div>
                                         <div className="book-shelf-changer">
-                                            <select>
+                                            <select
+                                                onClick={(event) => {
+                                                    props.moveBook(
+                                                        event.target.value,
+                                                        book
+                                                    );
+                                                }}
+                                            >
                                                 <option
                                                     value="move"
                                                     disabled=""
