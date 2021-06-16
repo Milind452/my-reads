@@ -1,9 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import * as BooksAPI from "./BooksAPI";
 
 class ListBooks extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            books: [],
+        };
+    }
+    componentDidMount() {
+        BooksAPI.getAll().then((books) => {
+            this.setState(() => ({
+                books,
+            }));
+            console.log(this.state.books);
+        });
     }
     render() {
         return (
