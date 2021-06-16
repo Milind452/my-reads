@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class ListBooks extends React.Component {
     constructor(props) {
@@ -9,7 +10,9 @@ class ListBooks extends React.Component {
             <div className="list-books">
                 <h1>Show Book</h1>
                 <div className="open-search">
-                    <button>Add a book</button>
+                    <Link to="/search" className="btn">
+                        Add a book
+                    </Link>
                 </div>
             </div>
         );
