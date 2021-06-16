@@ -8,6 +8,9 @@ class ListBooks extends React.Component {
         return (
             <div className="list-books">
                 <h1>Show Book</h1>
+                <div className="open-search">
+                    <button>Add a book</button>
+                </div>
             </div>
         );
     }
