@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Milind452/my-reads/static/css/main.2c8124ff.chunk.css",
+    "main.js": "/Milind452/my-reads/static/js/main.894217ea.chunk.js",
+    "main.js.map": "/Milind452/my-reads/static/js/main.894217ea.chunk.js.map",
+    "runtime-main.js": "/Milind452/my-reads/static/js/runtime-main.d998f86f.js",
+    "runtime-main.js.map": "/Milind452/my-reads/static/js/runtime-main.d998f86f.js.map",
+    "static/js/2.2a40656e.chunk.js": "/Milind452/my-reads/static/js/2.2a40656e.chunk.js",
+    "static/js/2.2a40656e.chunk.js.map": "/Milind452/my-reads/static/js/2.2a40656e.chunk.js.map",
+    "index.html": "/Milind452/my-reads/index.html",
+    "static/css/main.2c8124ff.chunk.css.map": "/Milind452/my-reads/static/css/main.2c8124ff.chunk.css.map",
+    "static/js/2.2a40656e.chunk.js.LICENSE.txt": "/Milind452/my-reads/static/js/2.2a40656e.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Milind452/my-reads/static/media/arrow-drop-down.98ef3b31.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d998f86f.js",
+    "static/js/2.2a40656e.chunk.js",
+    "static/css/main.2c8124ff.chunk.css",
+    "static/js/main.894217ea.chunk.js"
+  ]
+}
