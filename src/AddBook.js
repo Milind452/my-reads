@@ -22,9 +22,22 @@ class AddBooks extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevState.query !== this.state.query) {
             BooksAPI.search(this.state.query).then((books) => {
-                this.setState(() => ({
-                    books: books,
-                }));
+                if (
+                    typeof books === "object" &&
+                    books.hasOwnProperty("error")
+                ) {
+                    this.setState(() => ({
+                        books: [],
+                    }));
+                } else if (books === undefined) {
+                    this.setState(() => ({
+                        books: [],
+                    }));
+                } else {
+                    this.setState(() => ({
+                        books: books,
+                    }));
+                }
             });
         }
     }
@@ -53,7 +66,7 @@ class AddBooks extends React.Component {
                 <div className="search-result">
                     <Bookshelf
                         books={this.state.books}
-                        moveBook={this.moveBook}
+                        moveBook={this.props.moveBook}
                     />
                 </div>
             </div>

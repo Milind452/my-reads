@@ -67,13 +67,7 @@ class App extends React.Component {
                 ></Route>
                 <Route
                     path="/search"
-                    render={() => (
-                        <AddBooks
-                            state={this.state}
-                            getBooks={this.getBooks}
-                            moveBook={this.moveBook}
-                        />
-                    )}
+                    render={() => <AddBooks moveBook={this.moveBook} />}
                 ></Route>
             </div>
         );
