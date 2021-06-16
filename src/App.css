@@ -68,6 +68,10 @@
     background-color: lightgray;
 }
 
+.search-input-wrapper {
+    width: 100%;
+}
+
 .search-input {
     width: 100%;
     padding: 15px 10px;
